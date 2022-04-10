@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  btc_creation_price: 9.99
+  eth_creation_price: 9.99
+  btc_projection: 
+  eth_projection: 
+
+two:
+  amount: 1
+  btc_creation_price: 9.99
+  eth_creation_price: 9.99
+  btc_projection: 
+  eth_projection: 

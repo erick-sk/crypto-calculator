@@ -12,8 +12,22 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+
+    <header class="flex justify-center py-5 bg-blue-500">
+      <nav class="text-white text-xl">
+        <a href="/" >
+          Crypto Calculator
+        </a>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-2 h-screen">
       <%= yield %>
     </main>
+
+    <footer class="flex justify-center py-5 bg-blue-500">
+      <p class="text-white text-xl">Made by @Erick Saavedra</p>
+    </footer>
+
   </body>
 </html>
