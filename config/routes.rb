@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
   # Defines the root path route ("/")
-  # root "articles#index"
+  root to: "projections#new"
+  
+  get 'projections/:id', to: "projections#show", as: "projection"
+  post 'projections', to: "projections#create", as: "projections"
 
-  root to: "home#index"
+  # resources :projections, only: [:new, :show]
 end
