@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "projections#new"
   
-  get 'projections/:id', to: "projections#show", as: "projection"
   post 'projections', to: "projections#create", as: "projections"
-
-  # resources :projections, only: [:new, :show]
+  get 'projections/:id', to: "projections#show", as: "projection"
+  get 'projections/:id/export', to: "projections#export", as: "projection_export_csv"
 end

@@ -1,15 +1,29 @@
 require "faraday"
+require "csv"
 
 class Projection < ApplicationRecord
   before_validation :add_attributes
 
   # validations
   validates :amount, :btc_creation_price, :eth_creation_price, :btc_projection, :eth_projection, presence: true
-
   validates :amount, numericality: { greater_than: 0 }
 
   BTC_INTEREST_RATE = 0.05
   ETH_INTEREST_RATE = 0.03
+
+  def to_csv
+    attributes = %w(month, btc_projection, eth_projection)
+    btc_projection = JSON.parse(self.btc_projection)
+    eth_projection = JSON.parse(self.eth_projection)
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      (1..12).each do |i|
+        csv << [i, btc_projection["Month #{i}"], eth_projection["Month #{i}"]]
+      end
+    end
+  end
 
   private
 

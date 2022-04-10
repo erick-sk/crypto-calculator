@@ -14,6 +14,13 @@ class ProjectionsController < ApplicationController
     @eth_projection = JSON.parse(@projection.eth_projection)
   end
 
+  def export
+    @projection = Projection.find(params[:id])
+    respond_to do |format|
+      format.csv { send_data @projection.to_csv}
+    end
+  end
+
   private
   def projection_params
     params.require(:projection).permit(:amount)

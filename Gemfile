@@ -74,3 +74,5 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "faraday", "~> 2.2"
+
+gem "csv", "~> 3.2"

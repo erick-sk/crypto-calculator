@@ -11,7 +11,6 @@
     </tr>
 
     <% @btc_projection.each do |key, value| %>
-
     <tr>
       <td><%= key %></td>
       <td><%= value %></td>
@@ -29,6 +28,5 @@
 </div>
 
 <div>
-  <%# <%= @projection.eth_creation_price %>
-  <%# <%= @projection.eth_projection %>
+  <%= link_to "Home", projection_export_csv_path(@projection, format: "csv"), class:"underline" %>
 </div>
