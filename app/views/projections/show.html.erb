@@ -1,32 +1,50 @@
-<h1><%= @projection.amount %></h1>
+<h1 class="mt-4">Investment: $<%= @projection.amount %></h1>
+<p>Price BTC: $<%= @projection.btc_creation_price %></p>
+<p>Price ETH: $<%= @projection.eth_creation_price %></p>
 
-<div>
-  <%= @projection.btc_creation_price %>
+<div class="flex flex-col justify-center items-center">
 
-  <table>
-    <caption>Projections</caption>
+  <table class="table-auto border-collapse border border-slate-400 mb-2">
+    <caption class="text-xl font-bold uppercase mb-2">Projections BTC</caption>
+    <thead>
+      <tr>
+        <th class="border border-slate-300 px-4 py-2" scope="col">Months</th>
+        <th class="border border-slate-300 px-4 py-2" scope="col">Prices</th>    
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @btc_projection.each do |key, value| %>
+      <tr>
+        <td class="border border-slate-300 px-4 py-3"><%= key %></td>
+        <td class="border border-slate-300 px-4 py-3"><%= value %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>   
+
+  <table class="table-auto border-collapse border border-slate-400">
+    <caption class="text-xl font-bold uppercase mb-2">Projections ETH</caption>
+    <thead>
+      <tr>
+        <th class="border border-slate-300 px-4 py-2" scope="col">Months</th>
+        <th class="border border-slate-300 px-4 py-2" scope="col">Prices</th>    
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @eth_projection.each do |key, value| %>
     <tr>
-      <th scope="col">Months</th>
-      <th scope="col">Prices</th>    
-    </tr>
-
-    <% @btc_projection.each do |key, value| %>
-    <tr>
-      <td><%= key %></td>
-      <td><%= value %></td>
+      <td class="border border-slate-300 px-4 py-3"><%= key %></td>
+      <td class="border border-slate-300 px-4 py-3"><%= value %></td>
     </tr>
     <% end %>
-
-     <% @eth_projection.each do |key, value| %>
-    <tr>
-      <td><%= key %></td>
-      <td><%= value %></td>
-    </tr>
-    <% end %>
-
+    </tbody>
   </table>
+
+
 </div>
 
-<div>
-  <%= link_to "Home", projection_export_csv_path(@projection, format: "csv"), class:"underline" %>
+<div class="mt-4 flex justify-center">
+  <%= link_to "Export to CSV", projection_export_csv_path(@projection, format: "csv"), class:"bg-red-500 hover:bg-red-600 cursor-pointer text-white font-bold py-2 px-4 rounded" %>
 </div>
