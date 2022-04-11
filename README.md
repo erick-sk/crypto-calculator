@@ -1,24 +1,55 @@
-# README
+# Crypto Calculator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application that calculates the annual projection of an investment in dollars on the acquisition of two cryptocurrencies Bitcoin and Ethereum. With a monthly intreres of 5% and 3% respectively for each type of cryptocurrency.
 
-Things you may want to cover:
+## Tech Stack
 
-* Ruby version
+- Ruby 3.1.0
+- Rails 7.0.2.3
+- Sqlite3 1.4
 
-* System dependencies
 
-* Configuration
+Gems:
 
-* Database creation
+- tailwindcss-rails 2.0
+- faraday 2.2
+- csv 3.2
 
-* Database initialization
+## Initialize Project
 
-* How to run the test suite
+Clone project
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+  git clone git@github.com:erick-sk/crypto-calculator.git
+```
 
-* Deployment instructions
+Go to project directory
 
-* ...
+```bash
+  cd crypto-calculator
+```
+
+Install dependencies
+
+```bash
+  bundle install
+```
+
+Preparing the database:
+
+```bash
+  rails db:create
+  rails db:migrate
+```
+
+Start server
+
+```bash
+  rails server
+```
+
+Start tailwindcss:
+
+```bash
+  bin/dev
+```
